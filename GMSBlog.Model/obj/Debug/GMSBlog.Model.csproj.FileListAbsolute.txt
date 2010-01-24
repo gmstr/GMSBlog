@@ -1,0 +1,10 @@
+C:\Projects\GMSBlog\GMSBlog.Model\GMSBlog.Model\bin\Debug\GMSBlog.Model.dll
+C:\Projects\GMSBlog\GMSBlog.Model\GMSBlog.Model\bin\Debug\GMSBlog.Model.pdb
+C:\Projects\GMSBlog\GMSBlog.Model\GMSBlog.Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\GMSBlog\GMSBlog.Model\GMSBlog.Model\obj\Debug\GMSBlog.Model.dll
+C:\Projects\GMSBlog\GMSBlog.Model\GMSBlog.Model\obj\Debug\GMSBlog.Model.pdb
+C:\Projects\GMSBlog\GMSBlog.Model\bin\Debug\GMSBlog.Model.dll
+C:\Projects\GMSBlog\GMSBlog.Model\bin\Debug\GMSBlog.Model.pdb
+C:\Projects\GMSBlog\GMSBlog.Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\GMSBlog\GMSBlog.Model\obj\Debug\GMSBlog.Model.dll
+C:\Projects\GMSBlog\GMSBlog.Model\obj\Debug\GMSBlog.Model.pdb

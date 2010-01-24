@@ -1,0 +1,163 @@
+﻿/* Containers */
+
+body
+{
+	width: 960px;
+	min-width: 960px;
+	margin: 0 auto;
+	background-color: #222222;
+}
+
+p, li
+{
+	margin-bottom:5px;
+}
+
+.blog-ui-container
+{
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 12px;
+	background-color: #FAFAFA;
+	border: 1px #CCCCCC solid;
+}
+
+.blog-ui-header
+{
+	height: 54px;
+}
+
+.blog-ui-header h1
+{
+	font-size: 1.5em;
+	font-weight: bold;
+	padding: 5px 10px;
+}
+
+.blog-ui-header h2
+{
+	font-size: 1.3em;
+	font-weight: bold;
+	padding: 5px 10px;
+}
+
+.blog-ui-menu
+{
+	display:block;		
+	border-top: 1px #CCCCCC solid;
+}
+
+.blog-ui-menu li
+{
+	display:inline-block;
+	padding:5px 10px;
+	border-right:1px #CCCCCC solid;
+	margin:0;
+}
+
+.blog-ui-body
+{
+	border-top: 1px #CCCCCC solid;
+	border-bottom: 1px #CCCCCC solid;
+}
+
+.blog-ui-columns
+{
+	float: left;
+	padding: 5px 10px;
+}
+
+.blog-ui-columns h3
+{
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.blog-ui-columns h4
+{
+	font-size: 1.1em;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.blog-ui-columns ul
+{
+	list-style-type: disc;
+	list-style-position: inside;
+}
+
+.blog-ui-columns td, .blog-ui-columns th
+{
+	border: 1px #CCCCCC solid;
+	padding: 3px 5px;
+}
+
+.blog-ui-column-1
+{
+	width: 698px;
+	border-right: 1px #CCCCCC solid;
+}
+
+.blog-ui-column-2
+{
+	width: 219px;
+	border-left: 1px #CCCCCC solid;
+	margin-left: -1px;
+}
+
+.blog-ui-table-holder
+{
+	margin-bottom: 10px;
+}
+
+.blog-ui-update-holder
+{
+	border: 1px #CCCCCC solid;
+	padding: 10px;
+}
+
+.blog-ui-update-table td
+{
+	vertical-align:top;
+}
+.blog-ui-update-table label
+{
+	font-weight:bold;
+	padding-top:3px;
+	display:inline-block;
+}
+.blog-ui-update-table input
+{
+	border: 1px #DDDDDD solid;
+	padding:3px;
+}
+.blog-ui-update-table textarea
+{
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 100%;
+	background-color: #FAFAFA;
+	border: 1px #DDDDDD solid;
+	padding:3px;
+	width:835px;
+	height:200px;	
+}
+
+ul.blog-ui-checkbox-list
+{
+	list-style-type:none;	
+}
+
+.blog-ui-footer
+{
+	padding: 5px 10px;
+}
+
+
+/* State */
+
+.blog-ui-clear
+{
+	clear: both;
+}
+
+/* Interactions */

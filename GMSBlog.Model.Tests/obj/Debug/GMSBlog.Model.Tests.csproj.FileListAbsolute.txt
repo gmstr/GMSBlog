@@ -1,0 +1,14 @@
+C:\Projects\GMSBlog\GMSBlog.Model\GMSBlog.Model.Tests\bin\Debug\GMSBlog.Model.Tests.dll
+C:\Projects\GMSBlog\GMSBlog.Model\GMSBlog.Model.Tests\bin\Debug\GMSBlog.Model.Tests.pdb
+C:\Projects\GMSBlog\GMSBlog.Model\GMSBlog.Model.Tests\bin\Debug\GMSBlog.Model.dll
+C:\Projects\GMSBlog\GMSBlog.Model\GMSBlog.Model.Tests\bin\Debug\GMSBlog.Model.pdb
+C:\Projects\GMSBlog\GMSBlog.Model\GMSBlog.Model.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\GMSBlog\GMSBlog.Model\GMSBlog.Model.Tests\obj\Debug\GMSBlog.Model.Tests.dll
+C:\Projects\GMSBlog\GMSBlog.Model\GMSBlog.Model.Tests\obj\Debug\GMSBlog.Model.Tests.pdb
+C:\Projects\GMSBlog\GMSBlog.Model.Tests\bin\Debug\GMSBlog.Model.Tests.dll
+C:\Projects\GMSBlog\GMSBlog.Model.Tests\bin\Debug\GMSBlog.Model.Tests.pdb
+C:\Projects\GMSBlog\GMSBlog.Model.Tests\bin\Debug\GMSBlog.Model.dll
+C:\Projects\GMSBlog\GMSBlog.Model.Tests\bin\Debug\GMSBlog.Model.pdb
+C:\Projects\GMSBlog\GMSBlog.Model.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\GMSBlog\GMSBlog.Model.Tests\obj\Debug\GMSBlog.Model.Tests.dll
+C:\Projects\GMSBlog\GMSBlog.Model.Tests\obj\Debug\GMSBlog.Model.Tests.pdb
