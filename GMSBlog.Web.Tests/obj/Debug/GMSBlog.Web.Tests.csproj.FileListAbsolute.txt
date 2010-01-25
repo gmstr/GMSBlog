@@ -60,3 +60,5 @@ C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\Castle.Core.xml
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\obj\Debug\GMSBlog.Web.Tests.dll
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\obj\Debug\GMSBlog.Web.Tests.pdb
+C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\MarkdownSharp.dll
+C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\MarkdownSharp.pdb

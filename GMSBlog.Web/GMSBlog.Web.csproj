@@ -33,39 +33,43 @@
   <ItemGroup>
     <Reference Include="Antlr3.Runtime, Version=3.1.0.39271, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Fluent NHibernate\Antlr3.Runtime.dll</HintPath>
+      <HintPath>..\..\Fluent NHibernate\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Fluent NHibernate\Castle.Core.dll</HintPath>
+      <HintPath>..\..\Fluent NHibernate\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Fluent NHibernate\Castle.DynamicProxy2.dll</HintPath>
+      <HintPath>..\..\Fluent NHibernate\Castle.DynamicProxy2.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate, Version=1.0.0.593, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Fluent NHibernate\FluentNHibernate.dll</HintPath>
+      <HintPath>..\..\Fluent NHibernate\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Fluent NHibernate\Iesi.Collections.dll</HintPath>
+      <HintPath>..\..\Fluent NHibernate\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Fluent NHibernate\log4net.dll</HintPath>
+      <HintPath>..\..\Fluent NHibernate\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MarkdownSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\MarkdownSharp.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Fluent NHibernate\NHibernate.dll</HintPath>
+      <HintPath>..\..\Fluent NHibernate\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Fluent NHibernate\NHibernate.ByteCode.Castle.dll</HintPath>
+      <HintPath>..\..\Fluent NHibernate\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate.LambdaExtensions, Version=1.0.8.0, Culture=neutral, PublicKeyToken=706dcfc1e2725d62, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Fluent NHibernate\NHibernate.LambdaExtensions.dll</HintPath>
+      <HintPath>..\..\Fluent NHibernate\NHibernate.LambdaExtensions.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap, Version=2.5.3.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -106,6 +110,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ContentLinkHelper.cs" />
+    <Compile Include="Helpers\MarkdownHelper.cs" />
     <Compile Include="Helpers\ModelStateHelper.cs" />
     <Compile Include="Models\CategoriesSummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,6 +166,7 @@
     <Content Include="Views\Admin\Posts.aspx" />
     <Content Include="Views\Home\Category.aspx" />
     <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Home\Post.aspx" />
     <Content Include="Views\Home\Summary.ascx" />
     <Content Include="Views\Shared\Admin.Master" />
   </ItemGroup>

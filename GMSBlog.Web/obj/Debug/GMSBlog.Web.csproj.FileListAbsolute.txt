@@ -34,10 +34,8 @@ C:\Projects\GMSBlog\GMSBlog.Web\bin\GMSBlog.Service.dll
 C:\Projects\GMSBlog\GMSBlog.Web\bin\Iesi.Collections.dll
 C:\Projects\GMSBlog\GMSBlog.Web\bin\log4net.dll
 C:\Projects\GMSBlog\GMSBlog.Web\bin\NHibernate.dll
-C:\Projects\GMSBlog\GMSBlog.Web\bin\Castle.DynamicProxy.dll
 C:\Projects\GMSBlog\GMSBlog.Web\bin\log4net.xml
 C:\Projects\GMSBlog\GMSBlog.Web\bin\Castle.DynamicProxy2.xml
-C:\Projects\GMSBlog\GMSBlog.Web\bin\Castle.DynamicProxy.xml
 C:\Projects\GMSBlog\GMSBlog.Web\bin\GMSBlog.Service.pdb
 C:\Projects\GMSBlog\GMSBlog.Web\bin\GMSBlog.Model.pdb
 C:\Projects\GMSBlog\GMSBlog.Web\bin\FluentNHibernate.pdb
@@ -48,3 +46,10 @@ C:\Projects\GMSBlog\GMSBlog.Web\bin\NHibernate.xml
 C:\Projects\GMSBlog\GMSBlog.Web\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\GMSBlog\GMSBlog.Web\obj\Debug\GMSBlog.Web.dll
 C:\Projects\GMSBlog\GMSBlog.Web\obj\Debug\GMSBlog.Web.pdb
+C:\Projects\GMSBlog\GMSBlog.Web\bin\Antlr3.Runtime.dll
+C:\Projects\GMSBlog\GMSBlog.Web\bin\FluentNHibernate.dll
+C:\Projects\GMSBlog\GMSBlog.Web\bin\NHibernate.ByteCode.Castle.dll
+C:\Projects\GMSBlog\GMSBlog.Web\bin\NHibernate.LambdaExtensions.dll
+C:\Projects\GMSBlog\GMSBlog.Web\bin\NHibernate.ByteCode.Castle.xml
+C:\Projects\GMSBlog\GMSBlog.Web\bin\MarkdownSharp.dll
+C:\Projects\GMSBlog\GMSBlog.Web\bin\MarkdownSharp.pdb
