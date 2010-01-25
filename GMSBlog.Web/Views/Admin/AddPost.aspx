@@ -4,6 +4,19 @@
     <%= Html.Encode(Model.Id>0 ? "Edit Post" : "Add Post") %>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    
+    <% /* %><script src="../../Scripts/jquery-1.3.2-vsdoc.js" type="text/javascript"></script>  <% */ %>
+     <script type="text/javascript">
+         $(document).ready(function() {
+             $("#showPreview").click(function() {
+                 $.get("/Admin/GetPostPreview", { previewText: $("#Content").val() }, function(response) {
+                     $("#previewArea").html(response);
+                 });
+                 return false;
+             });
+         });
+    </script>
     <h2>
         <%= Html.Encode(Model.Id > 0 ? "Edit Post" : "Add Post") %>
     </h2>
@@ -40,6 +53,16 @@
             <td>
                 <%= Html.TextArea("Content", Model.Content) %>
                 <%= Html.ValidationMessage("Content", "*") %>
+                <a href="#" id="showPreview">Show Preview</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Preview:</label>
+            </td>
+            <td id="previewArea">
+                
             </td>
         </tr>
         <tr>

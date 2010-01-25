@@ -162,7 +162,7 @@
       <LastGenOutput>T4MVC.cs</LastGenOutput>
     </None>
     <Content Include="Views\Admin\AddPost.aspx" />
-    <Content Include="Views\Admin\EditPost.aspx" />
+    <Content Include="Views\Admin\GetPostPreview.ascx" />
     <Content Include="Views\Admin\Posts.aspx" />
     <Content Include="Views\Home\Category.aspx" />
     <Content Include="Views\Home\Index.aspx" />

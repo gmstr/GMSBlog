@@ -22,9 +22,13 @@ namespace GMSBlog.Web.Helpers
         }
 
         private static Markdown _markdown;
-        public static string RenderMarkdown(this HtmlHelper html, string content)
+        public static string RenderMarkdown(string content)
         {
             return _markdown.Transform(content);
+        }
+        public static string RenderMarkdown(this HtmlHelper html, string content)
+        {
+            return _markdown.Transform(html.Encode(content));
         }
     }
 }
