@@ -11,5 +11,11 @@
     
     <%=Html.RenderMarkdown(Model.Content) %>
     
+    <h3>Comments</h3>
+    <% foreach (var comment in Model.Comments)
+       { %>
+    <%Html.RenderPartial("Comment", comment);%>
+    <% } %>
+    
 
 </asp:Content>

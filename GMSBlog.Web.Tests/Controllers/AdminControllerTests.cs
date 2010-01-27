@@ -664,20 +664,7 @@ namespace GMSBlog.Web.Tests.Controllers
 
             Assert.IsNotNull(result);
 
-            Assert.AreEqual("<p>Test preview</p>", (result as PartialViewResult).ViewData.Model);
-        }
-
-        [TestMethod]
-        public void AdminController_Has_A_Preview_Method_Which_Returns_Preview_Text_And_Encodes_Initial_Content()
-        {
-            var controller = new AdminController();
-
-            var result = controller.GetPostPreview("Test preview <br /> with a break");
-
-            Assert.IsNotNull(result);
-
-            Assert.IsFalse((result as PartialViewResult).ViewData.Model.ToString().Contains("<br />"));
-            Assert.IsTrue((result as PartialViewResult).ViewData.Model.ToString().Contains("br /"));
+            Assert.AreEqual("<p>Test preview</p>".Trim(), (result as PartialViewResult).ViewData.Model.ToString().Trim());
         }
 
         #endregion

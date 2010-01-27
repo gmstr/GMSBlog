@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using StructureMap;
 using GMSBlog.Service;
+using GMSBlog.Model.Entities;
 
 namespace GMSBlog.Web.Controllers
 {
@@ -52,6 +53,32 @@ namespace GMSBlog.Web.Controllers
         public virtual ActionResult About()
         {
             return View();
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult AddComment(int postId, Comment comment)
+        {
+            try
+            {
+                using (var repository = ObjectFactory.GetInstance<IBlogService>())
+                {
+                    var post = repository.GetPostById(postId);
+
+                    repository.Save(comment);
+                    post.Comments.Add(comment);
+                    repository.Save(post);
+                }
+
+
+            }
+            catch (InvalidOperationException ex)
+            {
+                TempData["Name"] = comment.Name;
+                TempData["Content"] = comment.Content;
+                TempData["Website"] = comment.Website;
+                TempData["CommentError"] = comment.RuleViolations;
+            }
+            return RedirectToAction(Actions.Post(postId));
         }
     }
 }

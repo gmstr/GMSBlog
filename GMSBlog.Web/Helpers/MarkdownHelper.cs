@@ -28,7 +28,7 @@ namespace GMSBlog.Web.Helpers
         }
         public static string RenderMarkdown(this HtmlHelper html, string content)
         {
-            return _markdown.Transform(html.Encode(content));
+            return _markdown.Transform(content);
         }
     }
 }

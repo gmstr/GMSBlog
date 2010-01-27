@@ -165,6 +165,7 @@
     <Content Include="Views\Admin\GetPostPreview.ascx" />
     <Content Include="Views\Admin\Posts.aspx" />
     <Content Include="Views\Home\Category.aspx" />
+    <Content Include="Views\Home\Comment.ascx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\Post.aspx" />
     <Content Include="Views\Home\Summary.ascx" />

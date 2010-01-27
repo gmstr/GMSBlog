@@ -11,6 +11,7 @@ using GMSBlog.Web.Support;
 using GMSBlog.Model.Entities;
 using GMSBlog.Service;
 using GMSBlog.Web.Tests.Helpers;
+using GMSBlog.Model.Validation;
 
 namespace GMSBlog.Web.Tests.Controllers
 {
@@ -252,6 +253,94 @@ namespace GMSBlog.Web.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+        #endregion
+
+        #region Add Comment
+
+        [TestMethod]
+        public void HomeController_Has_An_Add_Comment_Method_Accepting_A_Comment_And_Post_Id()
+        {
+            var controller = new HomeController();
+
+            var result = controller.AddComment(1, new Comment());
+
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void HomeController_Has_An_Add_Comment_Method_Accepting_A_Comment_And_Post_Id_Which_Adds_A_Comment_To_A_Post()
+        {
+            var postId = 0;
+            using (var repository = ObjectFactory.GetInstance<IBlogService>())
+            {
+                var post = DummyLivePost();
+                repository.Save(post);
+
+                postId = post.Id;
+
+                Assert.AreEqual(0, repository.GetCommentsByPost(postId).Count);
+            }
+
+            var controller = new HomeController();
+
+            controller.AddComment(postId, new Comment() { Name = "Test", Content = "Test" });
+
+            DatabaseHelpers.Initialize(false);
+
+            using (var repository = ObjectFactory.GetInstance<IBlogService>())
+            {
+                Assert.AreEqual(1, repository.GetCommentsByPost(postId).Count);
+            }
+        }
+
+        [TestMethod]
+        public void HomeController_Has_An_Add_Comment_Method_Which_Redirects_To_The_Post_Page_On_Success()
+        {
+            var postId = 0;
+            using (var repository = ObjectFactory.GetInstance<IBlogService>())
+            {
+                var post = DummyLivePost();
+                repository.Save(post);
+
+                postId = post.Id;
+            }
+
+            var controller = new HomeController();
+
+            var result = controller.AddComment(postId, new Comment() { Name = "Test", Content = "Test" }) as RedirectToRouteResult;
+
+            Assert.AreEqual("Home", result.RouteValues["controller"]);
+            Assert.AreEqual("Post", result.RouteValues["action"]);
+            Assert.AreEqual(postId, result.RouteValues["id"]);
+        }
+
+        [TestMethod]
+        public void HomeController_Has_An_Add_Comment_Method_Which_Redirects_To_The_Post_Page_On_Failure_With_TempData_To_Reset_Fields()
+        {
+            var postId = 0;
+            using (var repository = ObjectFactory.GetInstance<IBlogService>())
+            {
+                var post = DummyLivePost();
+                repository.Save(post);
+
+                postId = post.Id;
+            }
+
+            var controller = new HomeController();
+
+            var result = controller.AddComment(postId, new Comment() { Name = "Test", Content="", Website="" });
+            var redirect = result as RedirectToRouteResult;
+
+            Assert.AreEqual("Home", redirect.RouteValues["controller"]);
+            Assert.AreEqual("Post", redirect.RouteValues["action"]);
+            Assert.AreEqual(postId, redirect.RouteValues["id"]);
+
+            Assert.AreEqual("Test", controller.TempData["Name"]);
+            Assert.AreEqual("", controller.TempData["Website"]);
+            Assert.AreEqual("", controller.TempData["Content"]);
+            Assert.AreEqual(1, (controller.TempData["CommentError"] as IEnumerable<RuleViolation>).Count());
+        }
+
         #endregion
     }
 }
