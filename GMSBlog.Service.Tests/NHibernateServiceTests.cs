@@ -936,5 +936,36 @@ namespace GMSBlog.Service.Tests
             }
         }
 
+        [TestMethod]
+        public void APostWithMultipleComments_OnlyReturnsOnePost()
+        {
+            Initialize(true);
+            using (var repository = new NHibernateBlogService())
+            {
+                var post = DummyLivePost();
+
+                for (int i = 0; i < 5; i++)
+                {
+                    var comment = new Comment()
+                    {
+                        Name="tetst",
+                        Content="Comment2"
+                    };
+
+                    post.Comments.Add(comment);
+                    
+                    repository.Save(comment);
+                }
+
+                repository.Save(post);
+
+
+            }
+            using (var repository = new NHibernateBlogService())
+            {
+                Assert.AreEqual(1, repository.GetPublishedPosts().Count);
+            }
+        }
+
     }
 }

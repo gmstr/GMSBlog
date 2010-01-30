@@ -11,6 +11,7 @@ using GMSBlog.Web.Helpers;
 
 namespace GMSBlog.Web.Controllers
 {
+    [Authorize]
     public partial class AdminController : Controller
     {
         private int _pageSize = 10;

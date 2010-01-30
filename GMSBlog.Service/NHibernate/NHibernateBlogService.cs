@@ -222,60 +222,33 @@ namespace GMSBlog.Service.NHibernate
         public IList<Post> GetPublishedPosts()
         {
             return getPosts().Add<Post>(x => x.IsPublished)
-                .SetFetchMode<Post>(x => x.Comments, FetchMode.Eager).AddOrder(Order.Desc("DateCreated")).List<Post>();
+                .FetchComments().AddOrder(Order.Desc("DateCreated")).List<Post>();
         }
 
         public IList<Post> GetPublishedPostsPaged(int pageSize, int page)
         {
             return getPosts().Add<Post>(x => x.IsPublished)
-                .SetFetchMode<Post>(x => x.Comments, FetchMode.Eager).AddOrder(Order.Desc("DateCreated")).SetPages(pageSize, page).List<Post>();
+                .FetchComments().AddOrder(Order.Desc("DateCreated")).SetPages(pageSize, page).List<Post>();
         }
 
         public Post GetPublishedPostById(int id)
         {
             return getPosts().Add<Post>(x => x.Id == id).Add<Post>(x => x.IsPublished)
-                .SetFetchMode<Post>(x => x.Comments, FetchMode.Eager).UniqueResult<Post>();
+                .FetchComments().UniqueResult<Post>();
         }
 
         public IList<Post> GetPublishedPostsByCategory(int categoryId)
         {
             return getPosts().Add<Post>(x => x.IsPublished)
-                .SetFetchMode<Post>(x => x.Comments, FetchMode.Eager).AddOrder(Order.Desc("DateCreated")).CreateCriteria<Post>(x => x.Categories).Add<Category>(x => x.Id == categoryId).List<Post>();
+                .FetchComments().AddOrder(Order.Desc("DateCreated")).CreateCriteria<Post>(x => x.Categories).Add<Category>(x => x.Id == categoryId).List<Post>();
         }
 
         public IList<Post> GetPublishedPostsByCategoryPaged(int categoryId, int pageSize, int page)
         {
             return getPosts().Add<Post>(x => x.IsPublished)
-                .SetFetchMode<Post>(x => x.Comments, FetchMode.Eager).AddOrder(Order.Desc("DateCreated")).CreateCriteria<Post>(x => x.Categories).Add<Category>(x => x.Id == categoryId).SetPages(pageSize, page).List<Post>();
+                .FetchComments().AddOrder(Order.Desc("DateCreated")).CreateCriteria<Post>(x => x.Categories).Add<Category>(x => x.Id == categoryId).SetPages(pageSize, page).List<Post>();
         }
 
-
-        /*
-         * public IList<Post> GetPosts()
-        {
-            return getPosts().List<Post>();
-        }
-
-        public IList<Post> GetPostsPaged(int pageSize, int page)
-        {
-            return getPosts().SetPages(pageSize, page).List<Post>();
-        }
-
-        public Post GetPostById(int id)
-        {
-            return getPosts().Add<Post>(x => x.Id == id).UniqueResult<Post>();
-        }
-
-        public IList<Post> GetPostsByCategory(int categoryId)
-        {
-            return getPosts().CreateCriteria<Post>(x => x.Categories).Add<Category>(x => x.Id == categoryId).List<Post>();
-        }
-
-        public IList<Post> GetPostsByCategoryPaged(int categoryId, int pageSize, int page)
-        {
-            return getPosts().CreateCriteria<Post>(x => x.Categories).Add<Category>(x => x.Id == categoryId).SetPages(pageSize, page).List<Post>();
-        }
-         * */
         #endregion
     }
 }
