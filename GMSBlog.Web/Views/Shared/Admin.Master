@@ -15,14 +15,7 @@
 </head>
 <body>
     <div class="blog-ui-container">
-        <div class="blog-ui-header">
-            <h1>
-                Header
-            </h1>
-            <h2>
-                Sub Header
-            </h2>
-        </div>        
+        <%Html.RenderPartial(MVC.Shared.Views.Header); %>
         <div class="blog-ui-menu">
             <ul>
                 <li>
@@ -40,9 +33,7 @@
             <div class="blog-ui-clear">
             </div>
         </div>
-        <div class="blog-ui-footer">
-            Footer
-        </div>
+        <%Html.RenderPartial(MVC.Shared.Views.Footer); %>
     </div>
 </body>
 </html>

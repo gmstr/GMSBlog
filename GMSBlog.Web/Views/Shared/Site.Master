@@ -1,4 +1,6 @@
-<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>
@@ -13,36 +15,34 @@
 </head>
 <body>
     <div class="blog-ui-container">
-        <div class="blog-ui-header">
-            <h1>
-                <%=Html.Encode(GMSBlog.Web.MvcApplication.BlogTitle) %></h1>
-            <h2>
-                <%=Html.Encode(GMSBlog.Web.MvcApplication.BlogSubtitle) %></h2>
-        </div>
+        <%Html.RenderPartial(MVC.Shared.Views.Header); %>
         <div class="blog-ui-body">
-            <div class="blog-ui-column-1 blog-ui-columns">                
+            <div class="blog-ui-column-1 blog-ui-columns">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             </div>
             <div class="blog-ui-column-2 blog-ui-columns">
-                <h3>Links</h3>
+                <h3>
+                    Links
+                </h3>
                 <ul>
-                    <li><%=Html.ActionLink("Index", MVC.Home.Index()) %></li>
+                    <li>
+                        <%=Html.ActionLink("Index", MVC.Home.Index()) %></li>
                 </ul>
-                
-                <h3>Categories</h3>
+                <h3>
+                    Categories
+                </h3>
                 <ul>
-                <% foreach (var category in ViewData["Categories"] as List<GMSBlog.Web.Models.CategorySummary>)
-                   { %>
-                    <li><%= Html.ActionLink(Html.Encode(String.Format("{0} ({1})", category.Name, category.NoOfPosts)), MVC.Home.Category(category.Id)) %></li>
-                <% } %>
+                    <% foreach (var category in ViewData["Categories"] as List<GMSBlog.Web.Models.CategorySummary>)
+                       { %>
+                    <li>
+                        <%= Html.ActionLink(Html.Encode(String.Format("{0} ({1})", category.Name, category.NoOfPosts)), MVC.Home.Category(category.Id)) %></li>
+                    <% } %>
                 </ul>
             </div>
             <div class="blog-ui-clear">
             </div>
         </div>
-        <div class="blog-ui-footer">
-            Footer
-        </div>
+        <%Html.RenderPartial(MVC.Shared.Views.Footer); %>
     </div>
 </body>
 </html>

@@ -25,6 +25,8 @@ namespace T4MVC {
         public ViewNames Views { get { return s_views; } }
         public class ViewNames {
             public readonly string Error = "~/Views/Shared/Error.aspx";
+            public readonly string Footer = "~/Views/Shared/Footer.ascx";
+            public readonly string Header = "~/Views/Shared/Header.ascx";
             public readonly string LogOnUserControl = "~/Views/Shared/LogOnUserControl.ascx";
         }
     }

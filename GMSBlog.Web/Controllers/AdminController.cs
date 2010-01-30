@@ -161,7 +161,7 @@ namespace GMSBlog.Web.Controllers
                 }
             }
         }
-        public PartialViewResult GetPostPreview(string previewText)
+        public virtual PartialViewResult GetPostPreview(string previewText)
         {
             return PartialView("GetPostPreview", MarkdownHelper.RenderMarkdown(previewText));
         }

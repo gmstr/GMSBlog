@@ -341,6 +341,8 @@ namespace GMSBlog.Web.Tests.Controllers
             Assert.AreEqual(1, (controller.TempData["CommentError"] as IEnumerable<RuleViolation>).Count());
         }
 
+        
+
         #endregion
     }
 }

@@ -10,7 +10,7 @@ body
 
 p, li
 {
-	margin-bottom:5px;
+	margin-bottom: 5px;
 }
 
 .blog-ui-container
@@ -24,6 +24,12 @@ p, li
 .blog-ui-header
 {
 	height: 54px;
+}
+
+.blog-ui-header a
+{
+	color:#000000;
+	text-decoration:none;
 }
 
 .blog-ui-header h1
@@ -42,16 +48,16 @@ p, li
 
 .blog-ui-menu
 {
-	display:block;		
+	display: block;
 	border-top: 1px #CCCCCC solid;
 }
 
 .blog-ui-menu li
 {
-	display:inline-block;
-	padding:5px 10px;
-	border-right:1px #CCCCCC solid;
-	margin:0;
+	display: inline-block;
+	padding: 5px 10px;
+	border-right: 1px #CCCCCC solid;
+	margin: 0;
 }
 
 .blog-ui-body
@@ -68,9 +74,12 @@ p, li
 
 .blog-ui-columns h2
 {
+	background-color: #531215;
+	color: #FFFFFF;
 	font-size: 1.3em;
 	font-weight: bold;
 	margin-bottom: 5px;
+	padding: 5px;
 }
 
 .blog-ui-columns h3
@@ -125,18 +134,18 @@ p, li
 
 .blog-ui-update-table td
 {
-	vertical-align:top;
+	vertical-align: top;
 }
 .blog-ui-update-table label
 {
-	font-weight:bold;
-	padding-top:3px;
-	display:inline-block;
+	font-weight: bold;
+	padding-top: 3px;
+	display: inline-block;
 }
 .blog-ui-update-table input
 {
 	border: 1px #DDDDDD solid;
-	padding:3px;
+	padding: 3px;
 }
 .blog-ui-update-table textarea
 {
@@ -144,14 +153,76 @@ p, li
 	font-size: 100%;
 	background-color: #FAFAFA;
 	border: 1px #DDDDDD solid;
-	padding:3px;
-	width:835px;
-	height:200px;	
+	padding: 3px;
+	width: 835px;
+	height: 200px;
 }
+
+.blog-ui-summary
+{
+	border:1px #CCCCCC solid;
+	margin-bottom:15px;
+}
+
+.blog-ui-summary-content
+{
+	padding:5px;
+	padding-top:0px;
+}
+
+.blog-ui-bottom-section
+{
+	border-top:1px #CCCCCC solid;
+	padding-top:5px;	
+}
+
+.blog-ui-postedon
+{
+	float:right;
+}
+
+.blog-ui-post
+{
+	border:1px #CCCCCC solid;
+	margin-bottom:15px;
+}
+
+.blog-ui-post-content
+{
+	padding:5px;
+	padding-top:0px;
+}
+
+.blog-ui-comment-table td
+{
+	vertical-align: top;
+}
+.blog-ui-comment-table label
+{
+	font-weight: bold;
+	padding-top: 3px;
+	display: inline-block;
+}
+.blog-ui-comment-table input
+{
+	border: 1px #DDDDDD solid;
+	padding: 3px;
+}
+.blog-ui-comment-table textarea
+{
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 100%;
+	background-color: #FAFAFA;
+	border: 1px #DDDDDD solid;
+	padding: 3px;
+	width: 610px;
+	height: 200px;
+}
+
 
 ul.blog-ui-checkbox-list
 {
-	list-style-type:none;	
+	list-style-type: none;
 }
 
 .blog-ui-footer

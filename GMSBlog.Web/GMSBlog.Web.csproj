@@ -113,6 +113,7 @@
     <Compile Include="Helpers\MarkdownHelper.cs" />
     <Compile Include="Helpers\ModelStateHelper.cs" />
     <Compile Include="Models\CategoriesSummary.cs" />
+    <Compile Include="Models\PostComment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Support\Bootstrapper.cs" />
     <Compile Include="Support\GMSBlogRegistry.cs" />
@@ -164,12 +165,16 @@
     <Content Include="Views\Admin\AddPost.aspx" />
     <Content Include="Views\Admin\GetPostPreview.ascx" />
     <Content Include="Views\Admin\Posts.aspx" />
+    <Content Include="Views\Home\AddComment.ascx" />
+    <Content Include="Views\Home\BottomSection.ascx" />
     <Content Include="Views\Home\Category.aspx" />
     <Content Include="Views\Home\Comment.ascx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\Post.aspx" />
     <Content Include="Views\Home\Summary.ascx" />
     <Content Include="Views\Shared\Admin.Master" />
+    <Content Include="Views\Shared\Footer.ascx" />
+    <Content Include="Views\Shared\Header.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />

@@ -2,7 +2,8 @@
 
 <div class="blog-ui-summary">
     <a href="<%=Url.Action(MVC.Home.Post(Model.Id)) %>"><h2><%=Html.Encode(Model.Title) %></h2></a>
+    <div class="blog-ui-summary-content">
     <p><%=Html.Encode(Model.Summary) %></p>
-    <span><%=Html.Encode(Model.Comments.Count == 1 ? Model.Comments.Count + " comment" : Model.Comments.Count + " comments") %></span>
-    <span>Posted on <%=Html.Encode(Model.DateCreated.ToString("dd MMMM yyyy h:mm tt")) %></span>
+    <%Html.RenderPartial("BottomSection", Model); %>
+    </div>
 </div>

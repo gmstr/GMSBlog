@@ -41,6 +41,10 @@ namespace GMSBlog.Web.Controllers {
         public System.Web.Mvc.ActionResult Category() {
             return new T4MVC_ActionResult(Area, Name, ActionNames.Category);
         }
+        [NonAction]
+        public System.Web.Mvc.ActionResult AddComment() {
+            return new T4MVC_ActionResult(Area, Name, ActionNames.AddComment);
+        }
 
         public HomeController Actions { get { return MVC.Home; } }
 
@@ -54,6 +58,7 @@ namespace GMSBlog.Web.Controllers {
             public readonly string Post = "Post";
             public readonly string Category = "Category";
             public readonly string About = "About";
+            public readonly string AddComment = "AddComment";
         }
 
 
@@ -61,8 +66,12 @@ namespace GMSBlog.Web.Controllers {
         public ViewNames Views { get { return s_views; } }
         public class ViewNames {
             public readonly string About = "~/Views/Home/About.aspx";
+            public readonly string AddComment = "~/Views/Home/AddComment.ascx";
+            public readonly string BottomSection = "~/Views/Home/BottomSection.ascx";
             public readonly string Category = "~/Views/Home/Category.aspx";
+            public readonly string Comment = "~/Views/Home/Comment.ascx";
             public readonly string Index = "~/Views/Home/Index.aspx";
+            public readonly string Post = "~/Views/Home/Post.aspx";
             public readonly string Summary = "~/Views/Home/Summary.ascx";
         }
     }
@@ -91,6 +100,13 @@ namespace GMSBlog.Web.Controllers {
 
         public override System.Web.Mvc.ActionResult About() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.About);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult AddComment(int postId, GMSBlog.Model.Entities.Comment comment) {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.AddComment);
+            callInfo.RouteValueDictionary.Add("postId", postId);
+            callInfo.RouteValueDictionary.Add("comment", comment);
             return callInfo;
         }
 

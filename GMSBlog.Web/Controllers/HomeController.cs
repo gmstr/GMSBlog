@@ -56,7 +56,7 @@ namespace GMSBlog.Web.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult AddComment(int postId, Comment comment)
+        public virtual ActionResult AddComment(int postId, Comment comment)
         {
             try
             {

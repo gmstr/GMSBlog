@@ -45,6 +45,10 @@ namespace GMSBlog.Web.Controllers {
         public System.Web.Mvc.ActionResult EditPost() {
             return new T4MVC_ActionResult(Area, Name, ActionNames.EditPost);
         }
+        [NonAction]
+        public System.Web.Mvc.PartialViewResult GetPostPreview() {
+            return new T4MVC_PartialViewResult(Area, Name, ActionNames.GetPostPreview);
+        }
 
         public AdminController Actions { get { return MVC.Admin; } }
 
@@ -63,6 +67,7 @@ namespace GMSBlog.Web.Controllers {
             public readonly string AddPost = "AddPost";
             public readonly string DeletePost = "DeletePost";
             public readonly string EditPost = "EditPost";
+            public readonly string GetPostPreview = "GetPostPreview";
         }
 
 
@@ -73,7 +78,7 @@ namespace GMSBlog.Web.Controllers {
             public readonly string AddCategoryLink = "~/Views/Admin/AddCategoryLink.ascx";
             public readonly string AddPost = "~/Views/Admin/AddPost.aspx";
             public readonly string Categories = "~/Views/Admin/Categories.aspx";
-            public readonly string EditPost = "~/Views/Admin/EditPost.aspx";
+            public readonly string GetPostPreview = "~/Views/Admin/GetPostPreview.ascx";
             public readonly string Index = "~/Views/Admin/Index.aspx";
             public readonly string Posts = "~/Views/Admin/Posts.aspx";
         }
@@ -149,6 +154,12 @@ namespace GMSBlog.Web.Controllers {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.EditPost);
             callInfo.RouteValueDictionary.Add("post", post);
             callInfo.RouteValueDictionary.Add("collection", collection);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.PartialViewResult GetPostPreview(string previewText) {
+            var callInfo = new T4MVC_PartialViewResult(Area, Name, ActionNames.GetPostPreview);
+            callInfo.RouteValueDictionary.Add("previewText", previewText);
             return callInfo;
         }
 
