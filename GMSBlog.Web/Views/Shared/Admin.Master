@@ -24,6 +24,9 @@
                 <li>
                     <%=Html.ActionLink("Posts", MVC.Admin.Posts()) %>
                 </li>
+                <li>
+                    <%=Html.ActionLink("Logout", MVC.Account.LogOut(Request.Url.PathAndQuery)) %>
+                </li>
             </ul>
         </div>
         <div class="blog-ui-body">

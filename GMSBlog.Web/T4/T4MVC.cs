@@ -20,6 +20,7 @@ using T4MVC;
 
 [CompilerGenerated]
 public static class MVC {
+    public static GMSBlog.Web.Controllers.AccountController Account = new GMSBlog.Web.Controllers.T4MVC_AccountController();
     public static GMSBlog.Web.Controllers.AdminController Admin = new GMSBlog.Web.Controllers.T4MVC_AdminController();
     public static GMSBlog.Web.Controllers.HomeController Home = new GMSBlog.Web.Controllers.T4MVC_HomeController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
