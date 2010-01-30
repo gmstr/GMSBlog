@@ -15,6 +15,7 @@ namespace GMSBlog.Service.NHibernate.Mappings
             Map(x => x.Content).Not.Nullable().CustomSqlType("text");
             Map(x => x.Name).Not.Nullable().Length(250);
             Map(x => x.Website).Nullable().Length(500);
+            Map(x => x.Email).Nullable().Length(500);
             Map(x => x.DateCreated).Not.Nullable();
 
             References(x => x.Post).Class<Post>().Cascade.SaveUpdate();

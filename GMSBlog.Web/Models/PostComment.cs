@@ -17,7 +17,6 @@ namespace GMSBlog.Web.Models
     {
         public int PostId { get; set; }
         public Comment Comment { get; set; }
-
         public PostComment() { }
         public PostComment(int postId, Comment comment)
         {

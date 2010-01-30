@@ -53,6 +53,16 @@ namespace GMSBlog.Model.Tests
         }
 
         [TestMethod]
+        public void Comment_Has_Email()
+        {
+            var comment = new Comment();
+
+            comment.Email = "test@example.com";
+
+            Assert.AreEqual("test@example.com", comment.Email);
+        }
+
+        [TestMethod]
         public void Comment_Has_Content()
         {
             var comment = new Comment();
@@ -186,6 +196,26 @@ namespace GMSBlog.Model.Tests
             var comment = new Comment();
 
             Assert.IsTrue(comment.DateCreated > DateTime.Now.AddSeconds(-2), String.Format("DateCreated: {0}, Actual (less 2 seconds): {1}", comment.DateCreated, DateTime.Now.AddSeconds(-2)));
+        }
+
+        [TestMethod]
+        public void If_Email_Is_Provided_But_Does_Not_Resolve_The_Comment_Is_Invalid()
+        {
+            var comment = DummyLiveComment();
+
+            comment.Email = @"email";
+
+            Assert.IsFalse(comment.IsValid);
+        }
+
+        [TestMethod]
+        public void If_Email_Is_Provided_And_Does_Resolve_The_Comment_Is_Valid()
+        {
+            var comment = DummyLiveComment();
+
+            comment.Email = @"test@example.com";
+
+            Assert.IsTrue(comment.IsValid);
         }
     }
 }

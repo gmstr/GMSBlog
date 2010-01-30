@@ -80,5 +80,26 @@ namespace GMSBlog.Web.Controllers
             }
             return RedirectToAction(Actions.Post(postId));
         }
+
+        public string GetCommentDescriptionString(Comment comment)
+        {
+            if (string.IsNullOrEmpty(comment.Website) && string.IsNullOrEmpty(comment.Email))
+            {
+                return String.Format("Posted by {0} on {1:dd MMMM yyyy h:mm tt}", comment.Name, comment.DateCreated);
+            }
+            else if (!string.IsNullOrEmpty(comment.Website) && string.IsNullOrEmpty(comment.Email))
+            {
+                return String.Format("Posted by <a href=\"{2}\">{0}</a> on {1:dd MMMM yyyy h:mm tt}", comment.Name, comment.DateCreated, comment.Website);
+               
+            }
+            else if (string.IsNullOrEmpty(comment.Website) && !string.IsNullOrEmpty(comment.Email))
+            {
+                return String.Format("Posted by <a href=\"mailto:{2}\">{0}</a> on {1:dd MMMM yyyy h:mm tt}", comment.Name, comment.DateCreated, comment.Email);
+            }
+            else
+            {
+                return String.Format("Posted by <a href=\"mailto:{2}\">{0}</a> (<a href=\"{3}\">{3}</a>) on {1:dd MMMM yyyy h:mm tt}", comment.Name, comment.DateCreated, comment.Email, comment.Website);
+            }
+        }
     }
 }

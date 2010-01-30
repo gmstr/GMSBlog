@@ -5,6 +5,7 @@ using System.Text;
 using GMSBlog.Model.Validation;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Net.Mail;
 
 namespace GMSBlog.Model.Entities
 {
@@ -37,6 +38,18 @@ namespace GMSBlog.Model.Entities
             set
             {
                 _name = value;
+            }
+        }
+        private string _email;
+        public virtual string Email
+        {
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                _email = value;
             }
         }
         private string _website;
@@ -132,6 +145,20 @@ namespace GMSBlog.Model.Entities
                     catch { websiteIsValid = false; }
                     if (!websiteIsValid) { yield return new RuleViolation("Website", "The website you have provided was not in a valid format, please check that you have included the valid http:// or https:// prefix"); }
                 }
+                if (!string.IsNullOrEmpty(Email))
+                {
+                    var emailIsValid = true;
+                    try
+                    {
+                        var mailAddress = new MailAddress(Email);                        
+                    }
+                    catch
+                    {
+                        emailIsValid = false;
+                    }
+                    if (!emailIsValid) { yield return new RuleViolation("Email", "The email address you have provided was not in a valid format"); }
+                }
+                
 
                 yield break;
             }
