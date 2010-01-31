@@ -193,6 +193,20 @@ p, li
 	padding-top:0px;
 }
 
+.blog-ui-comment
+{
+	border:1px #CCCCCC solid;
+	margin-bottom:15px;
+	padding: 5px;
+}
+
+.blog-ui-comment span 
+{
+	display: block;
+	border-top:1px #CCCCCC solid;
+	padding-top:5px;
+}
+
 .blog-ui-comment-table td
 {
 	vertical-align: top;

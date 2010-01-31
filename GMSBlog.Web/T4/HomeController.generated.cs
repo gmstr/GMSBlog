@@ -38,6 +38,10 @@ namespace GMSBlog.Web.Controllers {
             return new T4MVC_ActionResult(Area, Name, ActionNames.Post);
         }
         [NonAction]
+        public System.Web.Mvc.ActionResult PostByName() {
+            return new T4MVC_ActionResult(Area, Name, ActionNames.PostByName);
+        }
+        [NonAction]
         public System.Web.Mvc.ActionResult Category() {
             return new T4MVC_ActionResult(Area, Name, ActionNames.Category);
         }
@@ -56,6 +60,7 @@ namespace GMSBlog.Web.Controllers {
         public class ActionNamesClass {
             public readonly string Index = "Index";
             public readonly string Post = "Post";
+            public readonly string PostByName = "PostByName";
             public readonly string Category = "Category";
             public readonly string About = "About";
             public readonly string AddComment = "AddComment";
@@ -89,6 +94,15 @@ namespace GMSBlog.Web.Controllers {
         public override System.Web.Mvc.ActionResult Post(int id) {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Post);
             callInfo.RouteValueDictionary.Add("id", id);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult PostByName(string title, int year, int month, int day) {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.PostByName);
+            callInfo.RouteValueDictionary.Add("title", title);
+            callInfo.RouteValueDictionary.Add("year", year);
+            callInfo.RouteValueDictionary.Add("month", month);
+            callInfo.RouteValueDictionary.Add("day", day);
             return callInfo;
         }
 

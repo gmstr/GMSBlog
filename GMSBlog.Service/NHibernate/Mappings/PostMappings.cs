@@ -18,6 +18,7 @@ namespace GMSBlog.Service.NHibernate.Mappings
             Map(x => x.Title).Not.Nullable().Length(250);
             Map(x => x.Summary).Not.Nullable().Length(500);
             Map(x => x.Content).Not.Nullable().CustomSqlType("text");
+            Map(x => x.Keywords).Not.Nullable().Length(1000).Default("");
             Map(x => x.DateCreated).Not.Nullable();
             Map(x => x.DateUpdated).Not.Nullable();
             Map(x => x.IsPublished).Not.Nullable();

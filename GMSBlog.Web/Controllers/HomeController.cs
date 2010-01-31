@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using StructureMap;
 using GMSBlog.Service;
 using GMSBlog.Model.Entities;
+using GMSBlog.Web.Helpers;
 
 namespace GMSBlog.Web.Controllers
 {
@@ -30,14 +31,29 @@ namespace GMSBlog.Web.Controllers
             {
                 var post = repository.GetPublishedPostById(id);
 
-                if (post != null)
-                {
-                    return View(post);
-                }
-                else
-                {
-                    return RedirectToAction(Actions.Index());
-                }
+                return postView(post);
+            }
+        }
+
+        private ActionResult postView(Post post)
+        {
+            if (post != null)
+            {
+                return View("Post", post);
+            }
+            else
+            {
+                return RedirectToAction(Actions.Index());
+            }
+        }
+        public virtual ActionResult PostByName(string title, int year, int month, int day)
+        {
+            title = ContentLinkHelper.RemoveDashesFromTitle(null, title);
+            using (var repository = ObjectFactory.GetInstance<IBlogService>())
+            {
+                var post = repository.GetPublishedPostByTitleAndDate(title, new DateTime(year, month, day));
+
+                return postView(post);
             }
         }
 

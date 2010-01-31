@@ -194,6 +194,47 @@ namespace GMSBlog.Web.Tests.Controllers
             Assert.AreEqual(5, modelPost.Comments.Count);
         }
 
+        [TestMethod]
+        public void HomeController_Has_A_Post_Method_Which_Accepts_The_Name_Year_Month_And_Day_Of_The_Post()
+        {
+            // Arrange
+            var controller = new HomeController();
+
+            // Act
+            var result = controller.PostByName("Test", 2010, 01, 31);
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void HomeController_Has_A_Post_Method_Which_Accepts_The_Name_Year_Month_And_Day_Of_The_Post_And_Returns_The_Post_With_That_Id()
+        {
+            // Arrange
+            DatabaseHelpers.Initialize(true);
+            using (var repository = ObjectFactory.GetInstance<IBlogService>())
+            {
+                for (int i = 1; i <= 15; i++)
+                {
+                    var post = DummyLivePost();
+                    post.Title = String.Format("Test{0}", i);
+                    repository.Save(post);
+                }
+            }
+            var controller = new HomeController();
+
+            // Act
+            var date = DateTime.Today;
+            var result = controller.PostByName("Test8", date.Year, date.Month, date.Day) as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result.ViewData.Model, typeof(Post));
+            Assert.AreEqual(8, (result.ViewData.Model as Post).Id);
+        }
+
+
+
         #endregion
 
         #region Category

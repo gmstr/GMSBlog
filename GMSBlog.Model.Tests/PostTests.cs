@@ -342,5 +342,15 @@ namespace GMSBlog.Model.Tests
 
             Assert.AreEqual(1, post.Id);
         }
+
+        [TestMethod]
+        public void Post_Contains_Keywords()
+        {
+            var post = new Post();
+
+            post.Keywords = "Test";
+
+            Assert.AreEqual("Test", post.Keywords);
+        }
     }
 }

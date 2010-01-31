@@ -19,6 +19,12 @@ namespace GMSBlog.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "SEO Posts",                                              // Route name
+                "{year}-{month}-{day}/{title}",                           // URL with parameters
+                new { controller = "Home", action = "PostByName" }  // Parameter defaults
+            );
+
+            routes.MapRoute(
                 "Default",                                              // Route name
                 "{controller}/{action}/{id}",                           // URL with parameters
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults

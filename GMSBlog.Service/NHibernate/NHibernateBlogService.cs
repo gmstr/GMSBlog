@@ -32,7 +32,7 @@ namespace GMSBlog.Service.NHibernate
         private ITransaction _transaction;
 
         static ISessionFactory SessionFactory = CreateSessionFactory();
-        
+
         private static ISessionFactory CreateSessionFactory()
         {
             return CreateSessionFactory(ConfigurationManager.AppSettings["BlogConnectionStringName"]);
@@ -214,11 +214,6 @@ namespace GMSBlog.Service.NHibernate
             }
         }
 
-        #endregion
-
-        #region IBlogService Members
-
-
         public IList<Post> GetPublishedPosts()
         {
             return getPosts().Add<Post>(x => x.IsPublished)
@@ -249,6 +244,25 @@ namespace GMSBlog.Service.NHibernate
                 .FetchComments().AddOrder(Order.Desc("DateCreated")).CreateCriteria<Post>(x => x.Categories).Add<Category>(x => x.Id == categoryId).SetPages(pageSize, page).List<Post>();
         }
 
+        public Post GetPostByTitleAndDate(string title, DateTime date)
+        {
+            return getPosts().Add<Post>(x => x.Title == title)
+                .Add<Post>(x => x.DateCreated> date.Date)
+                .Add<Post>(x=>x.DateCreated < date.Date.AddDays(1))
+                .SetFetchMode<Post>(x => x.Comments, FetchMode.Eager)
+                .UniqueResult<Post>();
+        }
+
+        public Post GetPublishedPostByTitleAndDate(string title, DateTime date)
+        {
+            return getPosts().Add<Post>(x => x.Title == title)
+                .Add<Post>(x => x.IsPublished)
+                .Add<Post>(x => x.DateCreated > date.Date)
+                .Add<Post>(x => x.DateCreated < date.Date.AddDays(1))
+                .SetFetchMode<Post>(x => x.Comments, FetchMode.Eager)
+                .UniqueResult<Post>();
+        }
         #endregion
+
     }
 }

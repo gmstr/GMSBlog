@@ -16,6 +16,8 @@ namespace GMSBlog.Service
 
         Post GetPostById(int id);
 
+        Post GetPostByTitleAndDate(string title, DateTime date);
+
         IList<Post> GetPostsByCategory(int categoryId);
 
         IList<Post> GetPostsByCategoryPaged(int categoryId, int pageSize, int page);
@@ -25,6 +27,8 @@ namespace GMSBlog.Service
         IList<Post> GetPublishedPostsPaged(int pageSize, int page);
 
         Post GetPublishedPostById(int id);
+
+        Post GetPublishedPostByTitleAndDate(string title, DateTime date);
 
         IList<Post> GetPublishedPostsByCategory(int categoryId);
 

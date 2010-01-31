@@ -46,10 +46,12 @@ C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\log4net.dll
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\NHibernate.ByteCode.Castle.dll
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\NHibernate.dll
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\NHibernate.LambdaExtensions.dll
+C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\MarkdownSharp.dll
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\GMSBlog.Service.pdb
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\Castle.DynamicProxy2.xml
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\log4net.xml
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\NHibernate.ByteCode.Castle.xml
+C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\MarkdownSharp.pdb
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\FluentNHibernate.pdb
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\FluentNHibernate.xml
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\GMSBlog.Model.pdb
@@ -60,5 +62,3 @@ C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\Castle.Core.xml
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\obj\Debug\GMSBlog.Web.Tests.dll
 C:\Projects\GMSBlog\GMSBlog.Web.Tests\obj\Debug\GMSBlog.Web.Tests.pdb
-C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\MarkdownSharp.dll
-C:\Projects\GMSBlog\GMSBlog.Web.Tests\bin\Debug\MarkdownSharp.pdb

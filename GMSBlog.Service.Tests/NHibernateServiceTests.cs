@@ -967,5 +967,68 @@ namespace GMSBlog.Service.Tests
             }
         }
 
+        [TestMethod]
+        public void Can_Return_Post_By_Name_And_Date()
+        {
+            Initialize(true);
+            using (var repository = new NHibernateBlogService())
+            {
+                var post = DummyLivePost();
+                post.Title = "Test";
+
+                repository.Save(post);
+
+                Assert.AreEqual(1, repository.GetPosts().Count);
+            }
+            using (var repository = new NHibernateBlogService())
+            {
+                var post = repository.GetPostByTitleAndDate("Test", DateTime.Today);
+
+                Assert.IsNotNull(post);
+            }
+        }
+
+        [TestMethod]
+        public void Can_Return_Published_Post_By_Name_And_Date()
+        {
+            Initialize(true);
+            using (var repository = new NHibernateBlogService())
+            {
+                var post = DummyLivePost();
+                post.Title = "Test";
+
+                repository.Save(post);
+
+                Assert.AreEqual(1, repository.GetPosts().Count);
+            }
+            using (var repository = new NHibernateBlogService())
+            {
+                var post = repository.GetPublishedPostByTitleAndDate("Test", DateTime.Today);
+
+                Assert.IsNotNull(post);
+            }
+        }
+
+        [TestMethod]
+        public void Can_Return_Published_Post_By_Name_And_Date_Only_When_Published()
+        {
+            Initialize(true);
+            using (var repository = new NHibernateBlogService())
+            {
+                var post = DummyLivePost();
+                post.Title = "Test";
+                post.IsPublished = false;
+
+                repository.Save(post);
+
+                Assert.AreEqual(1, repository.GetPosts().Count);
+            }
+            using (var repository = new NHibernateBlogService())
+            {
+                var post = repository.GetPublishedPostByTitleAndDate("Test", DateTime.Today);
+
+                Assert.IsNull(post);
+            }
+        }
     }
 }

@@ -1,7 +1,12 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<GMSBlog.Model.Entities.Post>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Post
+	<% = string.Format("{0}: {1}", GMSBlog.Web.MvcApplication.BlogTitle, Model.Title) %>
+</asp:Content>
+
+<asp:Content ID="meta" ContentPlaceHolderID="MetaContent" runat="server">
+    <%=Html.MetaKeywords(Model.Keywords) %>
+    <%=Html.MetaDescription(Model.Summary) %>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">

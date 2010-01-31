@@ -47,6 +47,16 @@
         </tr>
         <tr>
             <td>
+                <label for="Keywords">
+                    Keywords:</label>
+            </td>
+            <td>
+                <%= Html.TextBox("Keywords", Model.Keywords, new { style = "width:835px;" })%>
+                <%= Html.ValidationMessage("Keywords", "*") %>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <label for="Content">
                     Content:</label>
             </td>

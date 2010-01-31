@@ -69,6 +69,19 @@ namespace GMSBlog.Model.Entities
                 _content = value;
             }
         }
+        private string _keywords;
+        public virtual string Keywords
+        {
+            get
+            {
+                return _keywords;
+            }
+            set
+            {
+                OnPropertyChanged("Keywords");
+                _keywords = value;
+            }
+        }
         private DateTime _dateCreated;
         public virtual DateTime DateCreated
         {
