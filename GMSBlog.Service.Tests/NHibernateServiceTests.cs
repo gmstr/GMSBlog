@@ -29,6 +29,7 @@ namespace GMSBlog.Service.Tests
             {
                 Content = "This is a dummy blog post. Blah blah blah blah.",
                 IsPublished = true,
+                Keywords = "",
                 Summary = "A dummy post",
                 Title = "Dummy Post"
             };

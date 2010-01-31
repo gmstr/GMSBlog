@@ -64,6 +64,7 @@ namespace GMSBlog.Web.Controllers {
             public readonly string Category = "Category";
             public readonly string About = "About";
             public readonly string AddComment = "AddComment";
+            public readonly string Feed = "Feed";
         }
 
 
@@ -121,6 +122,11 @@ namespace GMSBlog.Web.Controllers {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.AddComment);
             callInfo.RouteValueDictionary.Add("postId", postId);
             callInfo.RouteValueDictionary.Add("comment", comment);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Feed() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Feed);
             return callInfo;
         }
 

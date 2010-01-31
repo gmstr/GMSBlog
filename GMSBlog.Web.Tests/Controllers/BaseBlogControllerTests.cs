@@ -114,6 +114,7 @@ namespace GMSBlog.Web.Tests.Controllers
                         {
                             Content = "Test",
                             IsPublished = true,
+                            Keywords = "",
                             Title = "Test",
                             Summary = "Test"
                         };
@@ -160,6 +161,7 @@ namespace GMSBlog.Web.Tests.Controllers
                         {
                             Content = "Test",
                             IsPublished = j % 2 == 0,
+                            Keywords = "",
                             Title = "Test",
                             Summary = "Test"
                         };

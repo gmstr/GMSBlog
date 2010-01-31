@@ -7,6 +7,7 @@ using StructureMap;
 using GMSBlog.Service;
 using GMSBlog.Model.Entities;
 using GMSBlog.Web.Helpers;
+using System.ServiceModel.Syndication;
 
 namespace GMSBlog.Web.Controllers
 {
@@ -115,6 +116,32 @@ namespace GMSBlog.Web.Controllers
             else
             {
                 return String.Format("Posted by <a href=\"mailto:{2}\">{0}</a> (<a href=\"{3}\">{3}</a>) on {1:dd MMMM yyyy h:mm tt}", comment.Name, comment.DateCreated, comment.Email, comment.Website);
+            }
+        }
+        public virtual ActionResult Feed()
+        {
+            using (var repository = ObjectFactory.GetInstance<IBlogService>())
+            {
+                var items = new List<SyndicationItem>();
+
+                foreach (var post in repository.GetPublishedPosts())
+                {
+                    var item = new SyndicationItem(post.Title,
+                                                            post.Summary,
+                                                            new Uri(String.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority,
+                                                                Url.Action(Actions.PostByName(post.Title,
+                                                                                                post.DateCreated.Year,
+                                                                                                post.DateCreated.Month,
+                                                                                                post.DateCreated.Day)))));
+
+                    items.Add(item);
+                }
+
+                var feed = new SyndicationFeed(MvcApplication.BlogTitle,
+                                                   MvcApplication.BlogSubtitle,
+                                                   new Uri(String.Format("{0}://{1}", Request.Url.Scheme, Request.Url.Authority)), items);
+
+                return new RssActionResult(feed);
             }
         }
     }

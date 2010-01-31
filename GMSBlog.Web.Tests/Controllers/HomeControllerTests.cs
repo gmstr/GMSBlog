@@ -12,6 +12,10 @@ using GMSBlog.Model.Entities;
 using GMSBlog.Service;
 using GMSBlog.Web.Tests.Helpers;
 using GMSBlog.Model.Validation;
+using GMSBlog.Web.Helpers;
+using System.Web;
+using Moq;
+using System.Web.Routing;
 
 namespace GMSBlog.Web.Tests.Controllers
 {
@@ -35,6 +39,7 @@ namespace GMSBlog.Web.Tests.Controllers
             {
                 Content = "This is a dummy blog post. Blah blah blah blah.",
                 IsPublished = true,
+                Keywords = "",
                 Summary = "A dummy post",
                 Title = "Dummy Post"
             };
@@ -383,6 +388,69 @@ namespace GMSBlog.Web.Tests.Controllers
         }
 
         
+
+        #endregion
+
+        #region RSS Feed
+
+        [TestMethod]
+        public void HomeController_Has_A_Feed_Method()
+        {
+            var controller = new HomeController();
+
+            var result = controller.Feed();
+
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void HomeController_Has_A_Feed_Method_Which_Returns_An_RssActionResult()
+        {
+            var controller = new HomeController();
+
+            var result = controller.Feed();
+
+            Assert.IsInstanceOfType(result, typeof(RssActionResult));
+        }
+
+        [TestMethod]
+        public void HomeController_Has_A_Feed_Method_Which_Returns_An_RssActionResult_From_A_Feed_Of_Items()
+        {
+            DatabaseHelpers.Initialize(true);
+            using (var repository = ObjectFactory.GetInstance<IBlogService>())
+            {
+                for (int i = 1; i <= 15; i++)
+                {
+                    var post = DummyLivePost();
+                    post.Title = String.Format("Test{0}", i);
+                    repository.Save(post);
+                }
+            }
+                        
+            //var controller = new HomeController();
+
+            //controller.SetFakeControllerContext();
+
+            //MvcMockHelpers.SetupRequestUrl(controller.Request, "~/Feed/");
+
+            var request = new Mock<HttpRequestBase>();
+            request.Setup(x => x.Url).Returns(new Uri("http://www.gmsblog.com/Feed/"));
+
+            
+
+            var context = new Mock<HttpContextBase>();
+            context.SetupGet(x => x.Request).Returns(request.Object);
+            
+
+            var controller = new HomeController();
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+            controller.Url = new UrlHelper(new RequestContext(context.Object, new RouteData()));
+
+
+            var result = controller.Feed() as RssActionResult;
+
+            Assert.AreEqual(15, result.Feed.Items.Count());
+        }
 
         #endregion
     }
